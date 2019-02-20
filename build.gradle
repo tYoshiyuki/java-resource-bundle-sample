@@ -31,3 +31,10 @@ compileJava {
 compileTestJava {
     options.encoding = defaultEncoding
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'resourcebundlesample.App'
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}

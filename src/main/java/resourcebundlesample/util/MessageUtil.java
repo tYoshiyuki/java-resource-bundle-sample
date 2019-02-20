@@ -12,8 +12,8 @@ import java.util.ResourceBundle;
  * メッセージのユーティリティクラスです
  */
 public class MessageUtil {
-    // プロパティファイルのパス
-    private static final String PROPERTY_FILE_PATH = "lang\\message";
+    // プロパティファイルのFQDN
+    private static final String PROPERTY_FILE_NAME = "lang.message";
 
     private static ResourceBundle.Control UTF8_ENCODING_CONTROL = new ResourceBundle.Control() {
         /**
@@ -38,14 +38,14 @@ public class MessageUtil {
     };
 
     // リソースバンドル、既定でデフォルトのロケールを読み込む
-    private static ResourceBundle bundle = ResourceBundle.getBundle(MessageUtil.PROPERTY_FILE_PATH, UTF8_ENCODING_CONTROL);
+    private static ResourceBundle bundle = ResourceBundle.getBundle(MessageUtil.PROPERTY_FILE_NAME, UTF8_ENCODING_CONTROL);
 
     /**
      * メッセージのLocaleを変更します
      * @param locale ロケール情報
      */
     public static void setLocale(Locale locale) {
-        MessageUtil.bundle = ResourceBundle.getBundle(MessageUtil.PROPERTY_FILE_PATH, locale, UTF8_ENCODING_CONTROL);
+        MessageUtil.bundle = ResourceBundle.getBundle(MessageUtil.PROPERTY_FILE_NAME, locale, UTF8_ENCODING_CONTROL);
     }
 
     /**
